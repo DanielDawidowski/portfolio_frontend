@@ -22,7 +22,7 @@ export const HamburgerMenu = styled(motion.div)`
       width: 30px;
       height: 4px;
       display: block;
-      background: ${(props) => props.theme.black};
+      background: ${(props) => props.theme.white};
       border-radius: 15%;
       margin: 2px;
     }

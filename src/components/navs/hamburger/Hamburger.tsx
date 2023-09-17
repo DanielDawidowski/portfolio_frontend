@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 import PropTypes from "prop-types";
 import IHamburger from "./Hamburger.interface";
 import { HamburgerMenu, CloseMenu } from "./HamburgerStyles";
