@@ -1,4 +1,5 @@
-import { FC, ReactElement } from "react";
+import { ReactElement } from "react";
+import type { FC } from "react";
 import { StackStyles, Triangle } from "./StackStyles";
 import ReactSVG from "../../assets/SVG/React";
 import ReduxSVG from "../../assets/SVG/Redux";
