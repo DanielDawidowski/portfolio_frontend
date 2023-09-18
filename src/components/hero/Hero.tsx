@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 import { HeroStyles } from "./HeroStyles";
-import GithubSVG from "../../assets/SVG/github";
-import LinkedinSVG from "../../assets/SVG/linkedin";
+import GithubSVG from "../../assets/SVG/Github";
+import LinkedinSVG from "../../assets/SVG/Linkedin";
 
 const Hero: FC = (): ReactElement => {
   return (

@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 export const TypographyStyles = createGlobalStyle`
 html {
-  line-height: 1.25;
   body {
     font-family: Ranchers;
   }
@@ -81,7 +80,6 @@ h5 {
 
 p {
   letter-spacing: 0.05em;
-  line-height: 1.8;
   @media (min-width: ${(props) => props.theme.breakpoint_medium}) {
     font-size: ${(props) => props.theme.size5};
   }
