@@ -90,4 +90,8 @@ p {
     props
   ) => props.theme.black}, 1px 1px 0 ${(props) => props.theme.black};
 }
+
+.white-color {
+  color: ${(props) => props.theme.white};
+}
 `;

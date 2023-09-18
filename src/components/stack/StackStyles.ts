@@ -43,7 +43,12 @@ export const StackStyles = styled(motion.div)`
   }
 `;
 
-export const Triangle = styled(motion.div)<{ topLeft?: boolean; topRight?: boolean }>`
+export const Triangle = styled(motion.div)<{
+  topLeft?: boolean;
+  topRight?: boolean;
+  bottomLeft?: boolean;
+  bottomRight?: boolean;
+}>`
   border-style: solid;
   border-color: transparent transparent ${(props) => props.theme.purple_light} transparent;
   ${(props) =>
@@ -62,6 +67,24 @@ export const Triangle = styled(motion.div)<{ topLeft?: boolean; topRight?: boole
       transform: rotate(360deg);
       @media (min-width: ${(props) => props.theme.breakpoint_small}) {
         border-width: 0 70px 70px 0;
+      }
+    `}
+  ${(props) =>
+    props.bottomLeft &&
+    css`
+      border-width: 0 50px 70px 0;
+      transform: rotate(180deg);
+      @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+        border-width: 0 70px 70px 0;
+      }
+    `}
+  ${(props) =>
+    props.bottomRight &&
+    css`
+      border-width: 0 0 70px 50px;
+      transform: rotate(180deg);
+      @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+        border-width: 0 0 70px 70px;
       }
     `}
 `;

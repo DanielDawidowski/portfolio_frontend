@@ -4,6 +4,7 @@ import Navigation from "./components/navs/navigation/Navigation";
 import Hero from "./components/hero/Hero";
 import Stack from "./components/stack/Stack";
 import ScrollSlider from "./components/ScrollSlider/ScrollSlider";
+import About from "./components/about/About";
 
 function App() {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
@@ -21,7 +22,7 @@ function App() {
         <ScrollSlider />
       </section>
       <section>
-        <Hero />
+        <About />
       </section>
     </>
   );

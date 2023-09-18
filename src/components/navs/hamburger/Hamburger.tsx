@@ -17,9 +17,9 @@ const Hamburger: FC<IHamburger> = (props): ReactElement => {
       ) : (
         <HamburgerMenu>
           <button onClick={() => setToggleMenu(!toggleMenu)}>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span className="black-border"></span>
+            <span className="black-border"></span>
+            <span className="black-border"></span>
           </button>
         </HamburgerMenu>
       )}

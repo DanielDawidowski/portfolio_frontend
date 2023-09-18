@@ -20,6 +20,7 @@ export const globalStyles = {
   purple: "#A756D0",
   purple_light: "#B180DD",
   purple_dark: "#262034",
+  purple_opacity: "rgba(177, 128, 221, 0.4)",
   size1: "8px",
   size2: "12px",
   size3: "16px",

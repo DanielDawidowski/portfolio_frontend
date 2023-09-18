@@ -13,7 +13,7 @@ const Header: FC<IHamburger> = (props): ReactElement => {
       <div className="container">
         <nav className="header">
           <div className="header__logo">
-            <h3>Dan Daw</h3>
+            <h3 className="black-border">Dan Daw</h3>
           </div>
           <ul className="header__menu">
             <Menu />
