@@ -2,13 +2,13 @@ import { ReactElement, useState } from "react";
 import type { FC } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ProjectsStyles } from "./ProjectsStyles";
-import { IProject, IProjects, projects } from "./Projects.interface";
+import { IProject, projects } from "./Projects.interface";
 import Image from "../image/Image";
 import { container, item } from "./ProjectsVariants";
 import GithubSVG from "../../assets/SVG/Github";
 import WebSVG from "../../assets/SVG/Web";
 
-const Projects: FC<IProjects> = (): ReactElement => {
+const Projects: FC = (): ReactElement => {
   const [toggle, setToggle] = useState<string | null>("");
 
   const open = (name: string): void => {
@@ -30,7 +30,7 @@ const Projects: FC<IProjects> = (): ReactElement => {
           <motion.div className="container">
             {projects.map((project: IProject) => (
               <motion.div className="projects__content--item" key={project.id}>
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="sync">
                   <motion.div
                     className="projects__content--item__header"
                     style={{ borderBottom: toggle === project.name ? "1px solid #33547A" : "" }}

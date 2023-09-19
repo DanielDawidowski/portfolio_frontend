@@ -29,8 +29,7 @@ export const ProjectsStyles = styled(motion.div)`
       }
     }
     &__content {
-      padding: ${(props) => props.theme.size5} 0;
-      margin: ${(props) => props.theme.size1};
+      padding: 36px 8px 144px 8px;
       background: ${(props) => props.theme.turquoise_light};
       height: 100%;
       @media (min-width: ${(props) => props.theme.breakpoint_small}) {
@@ -58,6 +57,7 @@ export const ProjectsStyles = styled(motion.div)`
         &__body {
           height: 100%;
           width: 100%;
+          padding: ${(props) => props.theme.size5} 0;
           @media (min-width: ${(props) => props.theme.breakpoint_small}) {
             display: flex;
             justify-content: center;
