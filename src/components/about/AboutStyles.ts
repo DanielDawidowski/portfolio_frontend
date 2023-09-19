@@ -11,7 +11,7 @@ export const AboutStyles = styled(motion.div)`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      h2 {
+      h3 {
         background-color: ${(props) => props.theme.purple_light};
         width: 100%;
         height: 70px;
@@ -24,10 +24,14 @@ export const AboutStyles = styled(motion.div)`
       margin: ${(props) => props.theme.size6} 0;
       text-align: justify;
       line-height: 2;
+      font-size: ${(props) => props.theme.size4};
+      @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+        font-size: ${(props) => props.theme.size6};
+      }
     }
 
     &__info--small {
-      height: 110vh;
+      display: block;
       @media (min-width: ${(props) => props.theme.breakpoint_small}) {
         display: none;
       }

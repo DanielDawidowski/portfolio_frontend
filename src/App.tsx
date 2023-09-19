@@ -5,6 +5,7 @@ import Hero from "./components/hero/Hero";
 import Stack from "./components/stack/Stack";
 import ScrollSlider from "./components/ScrollSlider/ScrollSlider";
 import About from "./components/about/About";
+import Projects from "./components/projects/Projects";
 
 function App() {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
@@ -23,6 +24,9 @@ function App() {
       </section>
       <section>
         <About />
+      </section>
+      <section>
+        <Projects />
       </section>
     </>
   );

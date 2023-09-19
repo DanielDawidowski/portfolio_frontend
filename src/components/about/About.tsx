@@ -16,21 +16,19 @@ const About: FC = (): ReactElement => {
         <div className="container">
           <div className="about__title">
             <Triangle bottomLeft />
-            <h2 className="black-border">About Me</h2>
+            <h3 className="black-border">About Me</h3>
             <Triangle bottomRight />
           </div>
           <AboutContent />
         </div>
-        <div className="container">
-          <div className="about__info--small">
-            <div className="about__info--image">
-              <Image src={AboutInfoSmall} alt="AboutInfoSmall" />
-            </div>
-            <div className="about__info--small__profile">
-              <div className="about__info--small__profile__inner">
-                <Image src={ProfileImg} alt="Profile" />
-                <Arrow rotate />
-              </div>
+        <div className="about__info--small">
+          <div className="about__info--image">
+            <Image src={AboutInfoSmall} alt="AboutInfoSmall" />
+          </div>
+          <div className="about__info--small__profile">
+            <div className="about__info--small__profile__inner">
+              <Image src={ProfileImg} alt="Profile" />
+              <Arrow rotate />
             </div>
           </div>
         </div>

@@ -91,6 +91,12 @@ p {
   ) => props.theme.black}, 1px 1px 0 ${(props) => props.theme.black};
 }
 
+.white-border {
+  text-shadow: -1px -1px 0 ${(props) => props.theme.white}, 1px -1px 0 ${(props) => props.theme.white}, -1px 1px 0 ${(
+    props
+  ) => props.theme.white}, 1px 1px 0 ${(props) => props.theme.white};
+}
+
 .white-color {
   color: ${(props) => props.theme.white};
 }

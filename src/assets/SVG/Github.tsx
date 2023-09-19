@@ -5,7 +5,7 @@ interface IGithubSVG {
   fill?: string;
 }
 
-const Github: FC<React.SVGProps<IGithubSVG>> = (props): ReactElement => {
+const GithubSVG: FC<React.SVGProps<IGithubSVG>> = (props): ReactElement => {
   const { fill = "#85F3EA" } = props;
   return (
     <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,8 +17,8 @@ const Github: FC<React.SVGProps<IGithubSVG>> = (props): ReactElement => {
   );
 };
 
-Github.propTypes = {
+GithubSVG.propTypes = {
   fill: PropTypes.string
 };
 
-export default Github;
+export default GithubSVG;
