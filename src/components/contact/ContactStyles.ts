@@ -29,7 +29,7 @@ export const ContactStyles = styled(motion.div)`
     }
     &__body {
       padding: ${(props) => props.theme.size1};
-      margin: 50px 8px 144px 40px;
+      margin: 50px 8px 0 40px;
       @media (min-width: ${(props) => props.theme.breakpoint_small}) {
         display: flex;
         justify-content: space-between;
@@ -57,8 +57,8 @@ export const ContactStyles = styled(motion.div)`
           &--icon {
             padding-left: ${(props) => props.theme.size1};
             svg {
-              width: 40px;
-              height: 40px;
+              width: 30px;
+              height: 30px;
             }
           }
 
@@ -91,5 +91,8 @@ export const FormContainer = styled.div`
 
   button {
     margin-left: 60px;
+    @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+      margin-left: 20px;
+    }
   }
 `;

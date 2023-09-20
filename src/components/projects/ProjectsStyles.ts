@@ -34,7 +34,6 @@ export const ProjectsStyles = styled(motion.div)`
       height: 100%;
       @media (min-width: ${(props) => props.theme.breakpoint_small}) {
         padding: ${(props) => props.theme.size8} 0;
-        margin: ${(props) => props.theme.size8} 0;
       }
       &--item {
         &__header {
