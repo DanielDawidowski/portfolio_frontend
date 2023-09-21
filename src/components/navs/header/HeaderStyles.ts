@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const HeaderStyles = styled(motion.header)`
+export const HeaderStyles = styled(motion.header)<{ bgColor: string }>`
   position: fixed;
   width: 100%;
   z-index: 100;
+  background-color: ${(props) => props.bgColor};
+
   .header {
     margin: ${(props) => props.theme.size1};
     padding: ${(props) => props.theme.size1} 0;

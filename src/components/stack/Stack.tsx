@@ -9,12 +9,13 @@ import JSSVG from "../../assets/SVG/Js";
 import TSSVG from "../../assets/SVG/Ts";
 import NodeSVG from "../../assets/SVG/Node";
 import NextSVG from "../../assets/SVG/Next";
+import { Container } from "../styles/globalStyles";
 
 const Stack: FC = (): ReactElement => {
   return (
     <StackStyles>
       <div className="stack">
-        <div className="container">
+        <Container>
           <div className="stack__top">
             <Triangle topLeft />
             <div className="stack__top--content">
@@ -31,14 +32,14 @@ const Stack: FC = (): ReactElement => {
             </div>
             <Triangle topRight />
           </div>
-        </div>
+        </Container>
         <div className="stack__bottom">
-          <div className="container">
+          <Container>
             <NodeSVG />
             <CSSSVG />
             <HTMLSVG />
             <NextSVG />
-          </div>
+          </Container>
         </div>
       </div>
     </StackStyles>

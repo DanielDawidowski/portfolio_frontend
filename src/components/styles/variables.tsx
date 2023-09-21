@@ -16,6 +16,7 @@ export const globalStyles = {
   grey: "#737171",
   turquoise: "#4687A1",
   turquoise_light: "#85F3EA",
+  turquoise_opacity: "#85f3ea39",
   turquoise_dark: "#33547A",
   purple: "#A756D0",
   purple_light: "#B180DD",

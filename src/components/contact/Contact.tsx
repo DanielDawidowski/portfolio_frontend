@@ -11,6 +11,7 @@ import { ButtonColor } from "../button/Button.interface";
 import UserSVG from "../../assets/SVG/User";
 import EmailSVG from "../../assets/SVG/Email";
 import EnvelopeSVG from "../../assets/SVG/Envelope";
+import { Container } from "../styles/globalStyles";
 
 type IContactData = {
   name?: string;
@@ -50,7 +51,7 @@ const Contact: FC = (): ReactElement => {
           </div>
           <div className="line"></div>
         </div>
-        <div className="container">
+        <Container>
           <div className="contact__body">
             <div className="contact__body--form">
               <FormContainer>
@@ -86,7 +87,7 @@ const Contact: FC = (): ReactElement => {
               <Image src={ContactImg} alt="Contact image" />
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </ContactStyles>
   );

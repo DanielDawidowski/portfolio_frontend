@@ -36,13 +36,23 @@ export const ScrollSliderStyles = styled(motion.div)`
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: nowrap;
       background: ${(props) => props.theme.purple_light};
       @media (min-width: ${(props) => props.theme.breakpoint_small}) {
         width: 100%;
       }
+
       h1 {
-        word-spacing: 100px;
+        word-spacing: 40px;
         font-size: ${(props) => props.theme.size6};
+        display: flex;
+        .media {
+          display: none;
+          @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+            display: flex;
+            margin-left: 50px;
+          }
+        }
       }
     }
   }

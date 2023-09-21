@@ -1,19 +1,24 @@
 import { ReactElement, useState } from "react";
 import type { FC } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ProjectsStyles } from "./ProjectsStyles";
 import { IProject, projects } from "./Projects.interface";
 import Image from "../image/Image";
 import { container, item } from "./ProjectsVariants";
 import GithubSVG from "../../assets/SVG/Github";
 import WebSVG from "../../assets/SVG/Web";
+import { Container } from "../styles/globalStyles";
+import Accordion from "../accordion/Accordion";
 
 const Projects: FC = (): ReactElement => {
-  const [toggle, setToggle] = useState<string | null>("");
+  const [openAccordionIndex, setOpenAccordionIndex] = useState<number | null>(null);
 
-  const open = (name: string): void => {
-    setToggle(toggle !== name ? name : null);
-    console.log("toggle", toggle);
+  const handleAccordionClick = (index: number) => {
+    if (openAccordionIndex === index) {
+      setOpenAccordionIndex(null);
+    } else {
+      setOpenAccordionIndex(index);
+    }
   };
 
   return (
@@ -27,60 +32,50 @@ const Projects: FC = (): ReactElement => {
           <div className="line"></div>
         </div>
         <div className="projects__content">
-          <motion.div className="container">
-            {projects.map((project: IProject) => (
+          <Container>
+            {projects.map((project: IProject, i) => (
               <motion.div className="projects__content--item" key={project.id}>
-                <AnimatePresence mode="sync">
-                  <motion.div
-                    className="projects__content--item__header"
-                    style={{ borderBottom: toggle === project.name ? "1px solid #33547A" : "" }}
-                    onClick={() => open(project.name)}
-                  >
-                    <h2 className="black-border">{project.name.toUpperCase()}</h2>
-                  </motion.div>
-                  {toggle === project.name && (
+                <Accordion
+                  title={project.name.toUpperCase()}
+                  isOpen={openAccordionIndex === i}
+                  onClick={() => handleAccordionClick(i)}
+                >
+                  <motion.div key={project.id} className="projects__content--item__body">
                     <motion.div
-                      key={project.id}
-                      initial={{ height: 0, opacity: 0, y: -20 }}
-                      animate={{ height: toggle ? "100%" : "0", opacity: 1, y: 0 }}
-                      transition={{
-                        duration: 0.1,
-                        ease: "easeInOut"
-                      }}
-                      exit={{ height: 0, opacity: 0, y: "0%", transition: { duration: 0.5, ease: "easeInOut" } }}
-                      className="projects__content--item__body"
+                      className="projects__content--item__body--image"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } }}
+                      exit={{ height: 0, opacity: 0, transition: { duration: 0.1, ease: "easeInOut" } }}
                     >
-                      <motion.div className="projects__content--item__body--image">
-                        <Image src={project.img} alt={project.name} />
-                        <motion.div className="projects__content--item__body--social">
-                          <a href="https://www.google.com" target="_blank">
-                            <GithubSVG fill="#B180DD" />
-                          </a>
-                          <a href="https://www.google.com" target="_blank">
-                            <WebSVG />
-                          </a>
-                        </motion.div>
-                      </motion.div>
-                      <motion.div
-                        variants={container}
-                        initial="hidden"
-                        animate="show"
-                        exit="exit"
-                        className="projects__content--item__stack"
-                      >
-                        {project.stacks.map((stack) => (
-                          <motion.div variants={item} className="projects__content--item__stack--item">
-                            <div>{stack.icon}</div>
-                            <h3 className="white-border">{stack.name}</h3>
-                          </motion.div>
-                        ))}
+                      <Image src={project.img} alt={project.name} />
+                      <motion.div className="projects__content--item__body--social">
+                        <a href="https://www.google.com" target="_blank">
+                          <GithubSVG fill="#B180DD" />
+                        </a>
+                        <a href="https://www.google.com" target="_blank">
+                          <WebSVG />
+                        </a>
                       </motion.div>
                     </motion.div>
-                  )}
-                </AnimatePresence>
+                    <motion.div
+                      variants={container}
+                      initial="hidden"
+                      animate="show"
+                      exit="exit"
+                      className="projects__content--item__stack"
+                    >
+                      {project.stacks.map((stack, i) => (
+                        <motion.div key={i} variants={item} className="projects__content--item__stack--item">
+                          <div>{stack.icon}</div>
+                          <h3 className="white-border">{stack.name}</h3>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  </motion.div>
+                </Accordion>
               </motion.div>
             ))}
-          </motion.div>
+          </Container>
         </div>
       </div>
     </ProjectsStyles>

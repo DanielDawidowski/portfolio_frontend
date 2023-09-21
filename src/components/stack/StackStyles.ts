@@ -32,7 +32,7 @@ export const StackStyles = styled(motion.div)`
       @media (min-width: ${(props) => props.theme.breakpoint_small}) {
         display: none;
       }
-      .container {
+      div {
         padding: ${(props) => props.theme.size1};
         display: flex;
         justify-content: space-between;

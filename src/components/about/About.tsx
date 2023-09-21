@@ -8,19 +8,20 @@ import AboutInfoSmall from "../../assets/Images/about/about-info-small.png";
 import AboutInfoBig from "../../assets/Images/about/about-info.png";
 import Arrow from "../arrow/Arrow";
 import AboutContent from "./AboutContent";
+import { Container } from "../styles/globalStyles";
 
 const About: FC = (): ReactElement => {
   return (
     <AboutStyles>
       <div className="about">
-        <div className="container">
+        <Container>
           <div className="about__title">
             <Triangle bottomLeft />
             <h3 className="black-border">About Me</h3>
             <Triangle bottomRight />
           </div>
           <AboutContent />
-        </div>
+        </Container>
         <div className="about__info--small">
           <div className="about__info--image">
             <Image src={AboutInfoSmall} alt="AboutInfoSmall" />
@@ -34,7 +35,7 @@ const About: FC = (): ReactElement => {
         </div>
 
         <div className="about__info--big">
-          <div className="container">
+          <Container>
             <div className="about__info--big__profile">
               <div className="about__info--big__profile__inner">
                 <Arrow />
@@ -42,7 +43,7 @@ const About: FC = (): ReactElement => {
               </div>
               <Image src={AboutInfoBig} alt="AboutInfoBig" />
             </div>
-          </div>
+          </Container>
         </div>
       </div>
     </AboutStyles>

@@ -57,6 +57,7 @@ export const ProjectsStyles = styled(motion.div)`
           height: 100%;
           width: 100%;
           padding: ${(props) => props.theme.size5} 0;
+
           @media (min-width: ${(props) => props.theme.breakpoint_small}) {
             display: flex;
             justify-content: center;
@@ -98,7 +99,6 @@ export const ProjectsStyles = styled(motion.div)`
               display: flex;
               align-items: center;
               width: 50%;
-              margin: ${(props) => props.theme.size1} 0;
             }
             svg {
               width: 30px;
