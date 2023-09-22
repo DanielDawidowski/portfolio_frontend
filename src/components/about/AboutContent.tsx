@@ -1,9 +1,35 @@
-import { ReactElement } from "react";
+import { ReactElement, useRef, useEffect } from "react";
 import type { FC } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 const AboutContent: FC = (): ReactElement => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const animation = useAnimation();
+  const isInView = useInView(ref, { margin: "-150px" });
+
+  useEffect(() => {
+    if (isInView) {
+      animation.start("visible");
+    } else {
+      animation.start("hidden");
+    }
+  }, [animation, isInView]);
+
   return (
-    <p className="about__content">
+    <motion.p
+      className="about__content"
+      ref={ref}
+      animate={animation}
+      initial="hidden"
+      variants={{
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.8, ease: "easeInOut" }
+        },
+        hidden: { opacity: 0, y: 72 }
+      }}
+    >
       I<span className="white-color black-border">’</span>m a{" "}
       <span className="white-color black-border">versatile professional</span> who blends the worlds of development and
       design to craft exceptional digital experiences
@@ -18,7 +44,7 @@ const AboutContent: FC = (): ReactElement => {
       passionate <span className="white-color black-border">creator</span> who turns ideas into elegant
       <span className="white-color black-border">,</span> functional realities
       <span className="white-color black-border">.</span>
-    </p>
+    </motion.p>
   );
 };
 

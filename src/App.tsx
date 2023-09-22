@@ -8,11 +8,14 @@ import About from "./components/about/About";
 import Projects from "./components/projects/Projects";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
+import MiniScroll from "./components/scrollbar/Scrollbar";
 
 function App() {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
   return (
     <>
+      <MiniScroll />
+
       <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
       <Navigation toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
       <section>
