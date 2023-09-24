@@ -14,10 +14,7 @@ export const ScrollbarStyles = styled(motion.div)`
   }
 `;
 
-export const DotStyles = styled(motion.div).attrs<{ top?: number }>((props) => ({
-  top: props.top
-}))`
-  top: ${(props) => props.top}%;
+export const DotStyles = styled(motion.div)`
   position: absolute;
   left: -4px;
   width: 10px;

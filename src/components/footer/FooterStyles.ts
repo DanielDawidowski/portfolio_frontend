@@ -9,13 +9,15 @@ export const FooterStyles = styled(motion.footer)`
   justify-content: center;
   align-items: center;
   .footer {
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 40px;
     padding: ${(props) => props.theme.size4};
     @media (min-width: ${(props) => props.theme.breakpoint_small}) {
       padding: ${(props) => props.theme.size4} 0;
+    }
+    &__inner {
+      display: grid;
+      place-items: center;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 40px;
     }
   }
 `;

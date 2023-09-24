@@ -5,44 +5,48 @@ import CrossImg from "../../assets/images/projects/cross.png";
 export const ProjectsStyles = styled(motion.div)`
   background: ${(props) => props.theme.turquoise_light};
   .projects {
-    .line {
-      height: 50px;
-      width: 100%;
-      &:nth-child(1) {
-        background-color: ${(props) => props.theme.purple_light};
-      }
-      &:nth-child(2) {
-        background-color: ${(props) => props.theme.turquoise_light};
-        display: grid;
-        place-items: center;
-        h3 {
-          letter-spacing: 2px;
+    &__title {
+      overflow: hidden;
+      .line {
+        height: 50px;
+        width: 100%;
+        &:nth-child(1) {
+          background-color: ${(props) => props.theme.purple_light};
         }
-      }
-      &:nth-child(3) {
-        background: url(${CrossImg}) repeat-x center;
-        background-position: left center;
-        background-color: ${(props) => props.theme.turquoise_dark};
-        display: grid;
-        place-items: center;
-        overflow: hidden;
+        &:nth-child(2) {
+          background-color: ${(props) => props.theme.turquoise_light};
+          display: grid;
+          place-items: center;
+          h3 {
+            letter-spacing: 2px;
+          }
+        }
+        &:nth-child(3) {
+          background: url(${CrossImg}) repeat-x center;
+          background-position: left center;
+          background-color: ${(props) => props.theme.turquoise_dark};
+          display: grid;
+          place-items: center;
+          overflow: hidden;
+        }
       }
     }
     &__content {
       padding: 36px 8px 144px 8px;
       background: ${(props) => props.theme.turquoise_light};
       height: 100%;
+      overflow: hidden;
       @media (min-width: ${(props) => props.theme.breakpoint_small}) {
         padding: ${(props) => props.theme.size8} 0;
       }
       &--item {
         &__header {
-          padding: ${(props) => props.theme.size5} 0;
+          padding: ${(props) => props.theme.size5} 6px;
           border-top: 1px solid ${(props) => props.theme.turquoise_dark};
           display: flex;
           justify-content: space-between;
           @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-            padding: ${(props) => props.theme.size6} 0;
+            padding: ${(props) => props.theme.size6} 6px;
           }
 
           h2 {
@@ -85,11 +89,8 @@ export const ProjectsStyles = styled(motion.div)`
           width: 100%;
 
           @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
           }
           &--item {
             display: flex;

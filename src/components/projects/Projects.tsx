@@ -1,44 +1,74 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useState, useRef, useEffect } from "react";
 import type { FC } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { ProjectsStyles } from "./ProjectsStyles";
 import { IProject, projects } from "./Projects.interface";
 import Image from "../image/Image";
-import { container, item } from "./ProjectsVariants";
+import { stacksVariants, stackItemVariants, projectsVariants } from "./ProjectsVariants";
 import GithubSVG from "../../assets/SVG/Github";
 import WebSVG from "../../assets/SVG/Web";
 import { Container } from "../styles/globalStyles";
 import Accordion from "../accordion/Accordion";
+import { scrollToElement } from "../../utils/Utils";
 
 const Projects: FC = (): ReactElement => {
-  const [openAccordionIndex, setOpenAccordionIndex] = useState<number | null>(null);
+  const [openAccordionIndex, setOpenAccordionIndex] = useState<string>("");
+  const ref = useRef<HTMLDivElement | null>(null);
+  const animation = useAnimation();
+  const isInView = useInView(ref, { margin: "-150px" });
 
-  const handleAccordionClick = (index: number) => {
+  const handleAccordionClick = (index: string) => {
     if (openAccordionIndex === index) {
-      setOpenAccordionIndex(null);
+      setOpenAccordionIndex("");
     } else {
       setOpenAccordionIndex(index);
+      setTimeout(() => {
+        scrollToElement(index, 200);
+      }, 500);
     }
   };
 
+  useEffect(() => {
+    if (isInView) {
+      animation.start("visible");
+    } else {
+      animation.start("hidden");
+    }
+  }, [animation, isInView]);
+
+  const variantLeft = projectsVariants(-72, "0%");
+  const variantRight = projectsVariants(72, "200%");
+
   return (
     <ProjectsStyles>
-      <div className="projects">
+      <div id="projects" className="projects">
         <div className="projects__title">
-          <div className="line"></div>
-          <div className="line">
+          <motion.div
+            ref={ref}
+            animate={animation}
+            className="line"
+            initial="hidden"
+            variants={variantLeft}
+          ></motion.div>
+          <motion.div ref={ref} animate={animation} className="line" initial="hidden" variants={variantRight}>
             <h3 className="black-border">Projects</h3>
-          </div>
-          <div className="line"></div>
+          </motion.div>
+          <motion.div
+            ref={ref}
+            animate={animation}
+            className="line"
+            initial="hidden"
+            variants={variantRight}
+          ></motion.div>
         </div>
         <div className="projects__content">
           <Container>
-            {projects.map((project: IProject, i) => (
-              <motion.div className="projects__content--item" key={project.id}>
+            {projects.map((project: IProject) => (
+              <motion.div id={project.id} className="projects__content--item" key={project.id}>
                 <Accordion
                   title={project.name.toUpperCase()}
-                  isOpen={openAccordionIndex === i}
-                  onClick={() => handleAccordionClick(i)}
+                  isOpen={openAccordionIndex === project.id}
+                  onClick={() => handleAccordionClick(project.id)}
                 >
                   <motion.div key={project.id} className="projects__content--item__body">
                     <motion.div
@@ -58,14 +88,18 @@ const Projects: FC = (): ReactElement => {
                       </motion.div>
                     </motion.div>
                     <motion.div
-                      variants={container}
+                      variants={stacksVariants}
                       initial="hidden"
                       animate="show"
                       exit="exit"
                       className="projects__content--item__stack"
                     >
                       {project.stacks.map((stack, i) => (
-                        <motion.div key={i} variants={item} className="projects__content--item__stack--item">
+                        <motion.div
+                          key={i}
+                          variants={stackItemVariants}
+                          className="projects__content--item__stack--item"
+                        >
                           <div>{stack.icon}</div>
                           <h3 className="white-border">{stack.name}</h3>
                         </motion.div>
@@ -74,6 +108,7 @@ const Projects: FC = (): ReactElement => {
                   </motion.div>
                 </Accordion>
               </motion.div>
+              // <Project key={project.id} {...project} />
             ))}
           </Container>
         </div>

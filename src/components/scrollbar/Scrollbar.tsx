@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { DotStyles, ScrollbarStyles } from "./ScrollbarStyles";
 
+type StyleProps = {
+  [key: string]: string | number;
+};
+
 const MiniScroll: React.FC = () => {
   const [scrollPercentage, setScrollPercentage] = useState<number>(0);
   const scrollbarContainerRef = useRef<HTMLDivElement>(null);
@@ -21,6 +25,10 @@ const MiniScroll: React.FC = () => {
     };
   }, []);
 
+  const DotStyle: StyleProps = {
+    top: `${scrollPercentage}%`
+  };
+
   return (
     <ScrollbarStyles
       ref={scrollbarContainerRef}
@@ -28,9 +36,9 @@ const MiniScroll: React.FC = () => {
       animate={{ opacity: 1, y: 0, height: "10%", transition: { duration: 2.5, delay: 1 } }}
     >
       <DotStyles
-        top={scrollPercentage}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0, transition: { duration: 2.5, delay: 1 }, scale: [1, 1.5, 1] }}
+        style={DotStyle}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 2.5, delay: 1 }, scale: [1, 2, 1] }}
       />
     </ScrollbarStyles>
   );

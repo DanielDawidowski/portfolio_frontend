@@ -1,6 +1,7 @@
 import { FC, ReactElement } from "react";
 import { motion, Variants } from "framer-motion";
 import AnimatedLetters from "../../animated-letters/AnimatedLetters";
+import { scrollToElement } from "../../../utils/Utils";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -21,17 +22,17 @@ const item: Variants = {
 const Menu: FC = (): ReactElement => {
   return (
     <motion.ul variants={container} initial="hidden" animate="show" className="header__menu">
-      <motion.li variants={item}>
+      <motion.li variants={item} onClick={() => scrollToElement("about", 1000)}>
         <motion.h3 className="black-border">
           <AnimatedLetters word="About" />
         </motion.h3>
       </motion.li>
-      <motion.li variants={item}>
+      <motion.li variants={item} onClick={() => scrollToElement("contact", 1000)}>
         <motion.h3 className="black-border">
           <AnimatedLetters word="Contact" />
         </motion.h3>
       </motion.li>
-      <motion.li variants={item}>
+      <motion.li variants={item} onClick={() => scrollToElement("projects", 1000)}>
         <motion.h3 className="black-border">
           <AnimatedLetters word="Projects" />
         </motion.h3>

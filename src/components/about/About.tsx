@@ -1,5 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, useRef, useEffect } from "react";
 import type { FC } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { AboutStyles } from "./AboutStyles";
 import { Triangle } from "../stack/StackStyles";
 import Image from "../image/Image";
@@ -11,9 +12,21 @@ import AboutContent from "./AboutContent";
 import { Container } from "../styles/globalStyles";
 
 const About: FC = (): ReactElement => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const animation = useAnimation();
+  const isInView = useInView(ref, { margin: "-50px" });
+
+  useEffect(() => {
+    if (isInView) {
+      animation.start("visible");
+    } else {
+      animation.start("hidden");
+    }
+  }, [animation, isInView]);
+
   return (
     <AboutStyles>
-      <div className="about">
+      <div id="about" className="about">
         <Container>
           <div className="about__title">
             <Triangle bottomLeft />
@@ -36,13 +49,26 @@ const About: FC = (): ReactElement => {
 
         <div className="about__info--big">
           <Container>
-            <div className="about__info--big__profile">
+            <motion.div
+              className="about__info--big__profile"
+              ref={ref}
+              animate={animation}
+              initial="hidden"
+              variants={{
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.8, ease: "easeInOut" }
+                },
+                hidden: { opacity: 0, y: 72 }
+              }}
+            >
               <div className="about__info--big__profile__inner">
                 <Arrow />
                 <Image src={ProfileImg} alt="Profile" />
               </div>
               <Image src={AboutInfoBig} alt="AboutInfoBig" />
-            </div>
+            </motion.div>
           </Container>
         </div>
       </div>

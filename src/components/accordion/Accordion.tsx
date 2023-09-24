@@ -4,7 +4,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 // Styled-components styles
-const AccordionContainer = styled.div`
+const AccordionContainer = styled(motion.div)`
   overflow: hidden;
 `;
 

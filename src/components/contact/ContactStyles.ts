@@ -8,6 +8,7 @@ export const ContactStyles = styled(motion.div)`
   background-position: center;
   .contact {
     &__title {
+      overflow: hidden;
     }
     .line {
       height: 50px;
