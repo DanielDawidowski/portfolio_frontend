@@ -10,19 +10,10 @@ import AboutInfoBig from "../../assets/Images/about/about-info.png";
 import Arrow from "../arrow/Arrow";
 import AboutContent from "./AboutContent";
 import { Container } from "../styles/globalStyles";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const About: FC = (): ReactElement => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const animation = useAnimation();
-  const isInView = useInView(ref, { margin: "-50px" });
-
-  useEffect(() => {
-    if (isInView) {
-      animation.start("visible");
-    } else {
-      animation.start("hidden");
-    }
-  }, [animation, isInView]);
+  const [ref, animation] = useScrollAnimation("-50px");
 
   return (
     <AboutStyles>

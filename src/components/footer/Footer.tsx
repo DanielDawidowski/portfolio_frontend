@@ -4,6 +4,7 @@ import { Variants, motion, useAnimation, useInView } from "framer-motion";
 import { FooterStyles } from "./FooterStyles";
 import GithubSVG from "../../assets/SVG/Github";
 import LinkedinSVG from "../../assets/SVG/Linkedin";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -22,17 +23,7 @@ const item: Variants = {
 };
 
 const Footer: FC = (): ReactElement => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const animation = useAnimation();
-  const isInView = useInView(ref, { amount: 0 });
-
-  useEffect(() => {
-    if (isInView) {
-      animation.start("visible");
-    } else {
-      animation.start("hidden");
-    }
-  }, [animation, isInView]);
+  const [ref, animation] = useScrollAnimation("-50px");
 
   return (
     <FooterStyles>

@@ -1,19 +1,10 @@
-import { ReactElement, useRef, useEffect } from "react";
+import { ReactElement } from "react";
 import type { FC } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const AboutContent: FC = (): ReactElement => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const animation = useAnimation();
-  const isInView = useInView(ref, { margin: "-150px" });
-
-  useEffect(() => {
-    if (isInView) {
-      animation.start("visible");
-    } else {
-      animation.start("hidden");
-    }
-  }, [animation, isInView]);
+  const [ref, animation] = useScrollAnimation("-150px");
 
   return (
     <motion.p

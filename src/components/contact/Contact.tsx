@@ -16,13 +16,16 @@ import { Container } from "../styles/globalStyles";
 import { IContactData } from "./Contact.interface";
 import { projectsVariants } from "../projects/ProjectsVariants";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { emailService } from "../../services/email";
+
+const initialState: IContactData = {
+  username: "",
+  email: "",
+  message: ""
+};
 
 const Contact: FC = (): ReactElement => {
-  const [formData, setFormData] = useState<IContactData>({
-    name: "",
-    email: "",
-    message: ""
-  });
+  const [formData, setFormData] = useState<IContactData>(initialState);
 
   const [ref, animation] = useScrollAnimation("-150px");
 
@@ -38,10 +41,17 @@ const Contact: FC = (): ReactElement => {
     setFormData({ ...formData, message: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Perform form submission logic here
-    console.log(formData);
+    try {
+      const response = await emailService.sendMessage(formData);
+      setFormData(initialState);
+      return response;
+    } catch (error) {
+      console.error("error: ", error);
+      // Utils.dispatchNotification(errorMessage, "error", dispatch);
+    }
   };
 
   return (
@@ -94,7 +104,13 @@ const Contact: FC = (): ReactElement => {
                     <div className="contact__body--form__item--icon">
                       <UserSVG />
                     </div>
-                    <Input id="name" name="name" type="text" value={formData.name} onChange={handleChange} />
+                    <Input
+                      id="username"
+                      name="username"
+                      type="text"
+                      value={formData.username}
+                      onChange={handleChange}
+                    />
                   </motion.div>
                   <motion.div
                     className="contact__body--form__item"
@@ -118,7 +134,7 @@ const Contact: FC = (): ReactElement => {
                     <div className="contact__body--form__item--icon">
                       <EnvelopeSVG />
                     </div>
-                    <TextArea onChange={handleMessageChange} />
+                    <TextArea onChange={handleMessageChange} value={formData.message} />
                   </motion.div>
 
                   <Button color={ButtonColor.primary}>Send</Button>

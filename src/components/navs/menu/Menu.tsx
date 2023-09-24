@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 import { motion, Variants } from "framer-motion";
 import AnimatedLetters from "../../animated-letters/AnimatedLetters";
-import { scrollToElement } from "../../../utils/Utils";
+import { scrollToElement } from "../../../services/utils/Utils";
 
 const container: Variants = {
   hidden: { opacity: 0 },

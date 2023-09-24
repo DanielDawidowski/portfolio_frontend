@@ -9,13 +9,12 @@ import GithubSVG from "../../assets/SVG/Github";
 import WebSVG from "../../assets/SVG/Web";
 import { Container } from "../styles/globalStyles";
 import Accordion from "../accordion/Accordion";
-import { scrollToElement } from "../../utils/Utils";
+import { scrollToElement } from "../../services/utils/Utils";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const Projects: FC = (): ReactElement => {
   const [openAccordionIndex, setOpenAccordionIndex] = useState<string>("");
-  const ref = useRef<HTMLDivElement | null>(null);
-  const animation = useAnimation();
-  const isInView = useInView(ref, { margin: "-150px" });
+  const [ref, animation] = useScrollAnimation("-150px");
 
   const handleAccordionClick = (index: string) => {
     if (openAccordionIndex === index) {
@@ -27,14 +26,6 @@ const Projects: FC = (): ReactElement => {
       }, 500);
     }
   };
-
-  useEffect(() => {
-    if (isInView) {
-      animation.start("visible");
-    } else {
-      animation.start("hidden");
-    }
-  }, [animation, isInView]);
 
   const variantLeft = projectsVariants(-72, "0%");
   const variantRight = projectsVariants(72, "200%");
