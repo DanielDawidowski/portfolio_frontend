@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import { AboutStyles } from "./AboutStyles";
 import { Triangle } from "../stack/StackStyles";
 import Image from "../image/Image";
+import ProfileImg from "../../assets/images/about/me.png";
+import AboutInfoSmall from "../../assets/Images/about/about-info-small.png";
+import AboutInfoBig from "../../assets/Images/about/about-info.png";
 import Arrow from "../arrow/Arrow";
 import AboutContent from "./AboutContent";
 import { Container } from "../styles/globalStyles";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
-const ProfileImg = require("../../assets/images/about/me.png");
-const AboutInfoSmall = require("../../assets/Images/about/about-info-small.png");
-const AboutInfoBig = require("../../assets/Images/about/about-info.png");
 
 const About: FC = (): ReactElement => {
   const [ref, animation] = useScrollAnimation("-50px");
