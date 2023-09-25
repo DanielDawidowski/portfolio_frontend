@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import NavBGLarge from "../../assets/Images/hero/hero-bg-large.png";
-import NavBGSmall from "../../assets/Images/hero/hero-bg-small.png";
+
+const NavBGLarge = require("../../assets/Images/hero/hero-bg-small.png");
+const NavBGSmall = require("../../assets/Images/hero/hero-bg-small.png");
 
 export const HeroStyles = styled(motion.div)`
   padding: ${(props) => props.theme.size1};

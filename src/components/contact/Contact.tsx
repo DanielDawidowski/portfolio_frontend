@@ -2,8 +2,6 @@ import { ReactElement, useState, ChangeEvent } from "react";
 import type { FC } from "react";
 import { motion } from "framer-motion";
 import { ContactStyles, FormContainer } from "./ContactStyles";
-import ContactImg from "../../assets/Images/contact/contact.png";
-import PhoneImg from "../../assets/Images/contact/phone.png";
 import Image from "../image/Image";
 import Input from "../input/Input";
 import TextArea from "../textarea/TextArea";
@@ -17,6 +15,9 @@ import { IContactData } from "./Contact.interface";
 import { projectsVariants } from "../projects/ProjectsVariants";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { emailService } from "../../services/email";
+
+const ContactImg = require("../../assets/Images/contact/contact.png");
+const PhoneImg = require("../../assets/Images/contact/phone.png");
 
 const initialState: IContactData = {
   name: "",
