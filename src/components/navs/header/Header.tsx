@@ -33,7 +33,7 @@ const Header: FC<IHamburger> = (props): ReactElement => {
     };
   }, [currentSection]);
 
-  const headerColors: string[] = ["#85f3ea39", "#4687a1eb", "#262034eb", "#b280ddeb", "#33547aed"];
+  const headerColors: string[] = ["#85f3ea39", "#4687a1eb", "#262034eb", "#b280ddeb", "#33547aed", "#33547aed"];
 
   return (
     <HeaderStyles bgColor={headerColors[currentSection]}>

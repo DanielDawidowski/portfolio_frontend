@@ -1,5 +1,5 @@
 export type IContactData = {
-  username?: string;
+  name?: string;
   email?: string;
   message?: string;
 };

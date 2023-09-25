@@ -19,7 +19,7 @@ import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { emailService } from "../../services/email";
 
 const initialState: IContactData = {
-  username: "",
+  name: "",
   email: "",
   message: ""
 };
@@ -27,7 +27,7 @@ const initialState: IContactData = {
 const Contact: FC = (): ReactElement => {
   const [formData, setFormData] = useState<IContactData>(initialState);
 
-  const [ref, animation] = useScrollAnimation("-150px");
+  const [ref, animation] = useScrollAnimation("300px");
 
   const variantLeft = projectsVariants(-72, "0%");
   const variantRight = projectsVariants(72, "200%");
@@ -104,13 +104,7 @@ const Contact: FC = (): ReactElement => {
                     <div className="contact__body--form__item--icon">
                       <UserSVG />
                     </div>
-                    <Input
-                      id="username"
-                      name="username"
-                      type="text"
-                      value={formData.username}
-                      onChange={handleChange}
-                    />
+                    <Input id="name" name="name" type="text" value={formData.name} onChange={handleChange} />
                   </motion.div>
                   <motion.div
                     className="contact__body--form__item"

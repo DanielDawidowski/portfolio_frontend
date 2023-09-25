@@ -1,5 +1,4 @@
-import { ReactElement } from "react";
-import type { FC, ReactNode } from "react";
+import type { ReactNode } from "react";
 import ReactSVG from "../../assets/SVG/React";
 import ReduxSVG from "../../assets/SVG/Redux";
 import JSSVG from "../../assets/SVG/Js";

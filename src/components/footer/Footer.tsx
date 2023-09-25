@@ -1,6 +1,6 @@
-import { ReactElement, useRef, useEffect } from "react";
+import { ReactElement } from "react";
 import type { FC } from "react";
-import { Variants, motion, useAnimation, useInView } from "framer-motion";
+import { Variants, motion } from "framer-motion";
 import { FooterStyles } from "./FooterStyles";
 import GithubSVG from "../../assets/SVG/Github";
 import LinkedinSVG from "../../assets/SVG/Linkedin";

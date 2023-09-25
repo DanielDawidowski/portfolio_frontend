@@ -1,6 +1,6 @@
-import { ReactElement, useState, useRef, useEffect } from "react";
+import { ReactElement, useState } from "react";
 import type { FC } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { ProjectsStyles } from "./ProjectsStyles";
 import { IProject, projects } from "./Projects.interface";
 import Image from "../image/Image";

@@ -1,4 +1,4 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { ImageProps } from "./Image.interface";

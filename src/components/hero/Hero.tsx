@@ -1,38 +1,10 @@
 import { FC, ReactElement } from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { HeroStyles } from "./HeroStyles";
 import GithubSVG from "../../assets/SVG/Github";
 import LinkedinSVG from "../../assets/SVG/Linkedin";
 import { Container } from "../styles/globalStyles";
-
-const container: Variants = {
-  initial: {
-    opacity: 0
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.4
-    }
-  }
-};
-
-const item: Variants = {
-  initial: {
-    opacity: 0,
-    x: -20,
-    rotate: 180
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    rotate: 360,
-    transition: {
-      duration: 1
-    }
-  }
-};
+import { container, item } from "./HeroVariants";
 
 const Hero: FC = (): ReactElement => {
   return (

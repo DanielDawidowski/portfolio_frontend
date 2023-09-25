@@ -8,7 +8,10 @@ export const HeroStyles = styled(motion.div)`
   width: 100%;
 
   background: url(${NavBGSmall}) no-repeat;
-  @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+  background-position: center;
+  background-size: cover;
+
+  @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
     background: url(${NavBGLarge}) no-repeat;
     background-size: cover;
     background-position: center;

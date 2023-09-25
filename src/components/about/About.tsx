@@ -1,6 +1,6 @@
-import { ReactElement, useRef, useEffect } from "react";
+import { ReactElement } from "react";
 import type { FC } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { AboutStyles } from "./AboutStyles";
 import { Triangle } from "../stack/StackStyles";
 import Image from "../image/Image";
