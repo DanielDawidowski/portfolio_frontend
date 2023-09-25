@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { AboutStyles } from "./AboutStyles";
 import { Triangle } from "../stack/StackStyles";
 import Image from "../image/Image";
-import ProfileImg from "../../assets/images/about/me.png";
+import ProfileImg from "../../assets/Images/about/me.png";
 import AboutInfoSmall from "../../assets/Images/about/about-info-small.png";
 import AboutInfoBig from "../../assets/Images/about/about-info.png";
 import Arrow from "../arrow/Arrow";
