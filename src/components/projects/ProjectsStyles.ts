@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-
-const CrossImg = require("../../assets/images/projects/cross.png");
+import CrossImg from "../../assets/images/projects/cross.png";
 
 export const ProjectsStyles = styled(motion.div)`
   background: ${(props) => props.theme.turquoise_light};

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-
-const ContactBG = require("../../assets/Images/contact/contact-bg.png");
+import ContactBG from "../../assets/Images/contact/contact-bg.png";
 
 export const ContactStyles = styled(motion.div)`
   background: url(${ContactBG}) no-repeat;

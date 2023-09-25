@@ -1,7 +1,15 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig, loadEnv } from "vite";
+import plugins from "./plugins";
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()]
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd());
+
+  return {
+    plugins: plugins(mode),
+    server: {
+      port: 3000, // To run the app on port 3000
+      open: true // If we want to open the app once its started
+      // https: false // To run the app in https mode
+    }
+  };
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { ThemeProvider } from "styled-components";
-import { globalStyles } from "./components/styles/variables";
+import { globalStyles } from "./components/styles/variables.tsx";
 import App from "./App.tsx";
 import { GlobalStyles } from "./components/styles/globalStyles.ts";
 import { TypographyStyles } from "./components/styles/typographyStyles.ts";
