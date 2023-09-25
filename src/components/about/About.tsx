@@ -8,9 +8,9 @@ import Arrow from "../arrow/Arrow";
 import AboutContent from "./AboutContent";
 import { Container } from "../styles/globalStyles";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
-import ProfileImg from "../../assets/images/about/me.png";
-import AboutInfoSmall from "../../assets/Images/about/about-info-small.png";
-import AboutInfoBig from "../../assets/Images/about/about-info.png";
+import ProfileImg from "assets/images/about/me.png";
+import AboutInfoSmall from "assets/Images/about/about-info-small.png";
+import AboutInfoBig from "assets/Images/about/about-info.png";
 
 const About: FC = (): ReactElement => {
   const [ref, animation] = useScrollAnimation("-50px");

@@ -10,6 +10,12 @@ export default defineConfig(({ mode }) => {
       port: 3000, // To run the app on port 3000
       open: true // If we want to open the app once its started
       // https: false // To run the app in https mode
+    },
+    resolve: {
+      alias: {
+        src: "/src",
+        assets: "/src/assets"
+      }
     }
   };
 });
