@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import AboutBG from "../../assets/Images/about/about-bg.png";
+const AboutBG = require("../../assets/Images/about/about-bg.png");
 
 export const AboutStyles = styled(motion.div)`
   background: ${(props) => props.theme.purple_opacity};
