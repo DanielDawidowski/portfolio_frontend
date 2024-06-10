@@ -6,10 +6,9 @@ export const ContactStyles = styled(motion.div)`
   background: url(${ContactBG}) no-repeat;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
+
   .contact {
-    &__title {
-      overflow: hidden;
-    }
     .line {
       height: 50px;
       width: 100%;
@@ -29,9 +28,8 @@ export const ContactStyles = styled(motion.div)`
       }
     }
     &__body {
-      padding: ${(props) => props.theme.size1};
-      margin: 50px 8px 0 40px;
-      @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+      padding: ${(props) => props.theme.size6} ${(props) => props.theme.size1};
+      @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -42,21 +40,22 @@ export const ContactStyles = styled(motion.div)`
         background-color: ${(props) => props.theme.purple_light};
         border-radius: 18px;
         padding: ${(props) => props.theme.size4} 0;
+
         @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-          padding: ${(props) => props.theme.size4} ${(props) => props.theme.size6};
-          input {
-            width: 300px;
-          }
-          textarea {
-            width: 300px;
-          }
+          padding: ${(props) => props.theme.size4} ${(props) => props.theme.size2};
         }
         &__item {
           display: flex;
-          justify-content: center;
           align-items: center;
+          input[type="text"] {
+            width: 100%;
+          }
+          textarea {
+            width: 100%;
+          }
+
           &--icon {
-            padding-left: ${(props) => props.theme.size1};
+            padding-right: ${(props) => props.theme.size1};
             svg {
               width: 30px;
               height: 30px;
@@ -68,11 +67,16 @@ export const ContactStyles = styled(motion.div)`
           }
         }
         &__image {
-          position: absolute;
-          background: ${(props) => props.theme.white};
-          border-radius: 18px;
-          top: 50%;
-          left: -10%;
+          display: none;
+          @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+            display: block;
+            position: absolute;
+            background: ${(props) => props.theme.white};
+            margin: ${(props) => props.theme.size1};
+            border-radius: 18px;
+            top: 45%;
+            left: -10%;
+          }
           img {
             width: 80px;
           }
@@ -80,6 +84,9 @@ export const ContactStyles = styled(motion.div)`
       }
       &--image {
         margin-top: 50px;
+        @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
+          max-width: 400px;
+        }
       }
     }
   }

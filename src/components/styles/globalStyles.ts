@@ -1,4 +1,4 @@
-import { createGlobalStyle, styled } from "styled-components";
+import { createGlobalStyle, styled, css } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
 *, *::before, *::after {
     margin: 0;
@@ -41,11 +41,19 @@ img {
 }
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{ small?: boolean }>`
   margin: 0 auto;
   max-width: 900px;
 
   @media (min-width: ${(props) => props.theme.breakpoint_small}) {
     max-width: 1200px;
   }
+
+  ${(props) =>
+    props.small &&
+    css`
+      @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+        max-width: 1000px;
+      }
+    `}
 `;
