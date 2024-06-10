@@ -4,7 +4,6 @@ import { HeaderStyles } from "./HeaderStyles";
 import IHamburger from "../hamburger/Hamburger.interface";
 import Hamburger from "../hamburger/Hamburger";
 import Menu from "../menu/Menu";
-import AnimatedLetters from "../../animated-letters/AnimatedLetters";
 import { Container } from "../../styles/globalStyles";
 import Logo from "../../logo/Logo";
 
