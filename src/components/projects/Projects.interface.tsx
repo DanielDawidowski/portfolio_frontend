@@ -18,6 +18,8 @@ export interface IProject {
   id: string;
   name: string;
   img: string;
+  github: string;
+  web: string;
   stacks: IStack[];
 }
 
@@ -30,13 +32,15 @@ export const projects: IProject[] = [
     id: "12345",
     name: "Cinema",
     img: "https://i.ibb.co/YtRh7bt/cinema.png",
+    github: "https://github.com/DanielDawidowski/cinema-FRONTEND",
+    web: "https://cinema-frontend-mol8.onrender.com/",
     stacks: [
       {
         name: "React",
         icon: <ReactSVG />
       },
       {
-        name: "Redux",
+        name: "@Reduxjs/toolkit",
         icon: <ReduxSVG />
       },
       {
@@ -44,8 +48,8 @@ export const projects: IProject[] = [
         icon: <TSSVG />
       },
       {
-        name: "Sass",
-        icon: <SassSVG />
+        name: "Styled components",
+        icon: <StyledSVG />
       }
     ]
   },
@@ -53,6 +57,8 @@ export const projects: IProject[] = [
     id: "12346",
     name: "Clothes_shop",
     img: "https://i.ibb.co/BNYchDZ/clothes.png",
+    github: "https://github.com/DanielDawidowski/shop-2023-frontend",
+    web: "https://shop-2023.onrender.com/",
     stacks: [
       {
         name: "React",
@@ -80,6 +86,8 @@ export const projects: IProject[] = [
     id: "12347",
     name: "Active_camps",
     img: "https://i.ibb.co/f0x7CNq/camps.png",
+    github: "https://github.com/DanielDawidowski/aktywne_obozy_REACT_JS_2023",
+    web: "https://aktywneobozy.com.pl/",
     stacks: [
       {
         name: "React",
@@ -115,6 +123,8 @@ export const projects: IProject[] = [
     id: "12348",
     name: "Pizza_Restaurant",
     img: "https://i.ibb.co/FVQJH0g/restaurant.png",
+    github: "https://github.com/DanielDawidowski/pizza_restaurant",
+    web: "https://pizza-restaurant-ciwo.onrender.com/",
     stacks: [
       {
         name: "React",

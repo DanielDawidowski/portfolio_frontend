@@ -70,10 +70,10 @@ const Projects: FC = (): ReactElement => {
                     >
                       <Image src={project.img} alt={project.name} />
                       <motion.div className="projects__content--item__body--social">
-                        <a href="https://www.google.com" target="_blank">
+                        <a href={project.github} target="_blank">
                           <GithubSVG fill="#B180DD" />
                         </a>
-                        <a href="https://www.google.com" target="_blank">
+                        <a href={project.web} target="_blank">
                           <WebSVG />
                         </a>
                       </motion.div>

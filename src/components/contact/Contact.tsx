@@ -76,7 +76,7 @@ const Contact: FC = (): ReactElement => {
             className="line"
           ></motion.div>
         </div>
-        <Container>
+        <Container small>
           <div className="contact__body">
             <motion.div
               className="contact__body--form"

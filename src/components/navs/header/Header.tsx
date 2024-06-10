@@ -6,6 +6,7 @@ import Hamburger from "../hamburger/Hamburger";
 import Menu from "../menu/Menu";
 import AnimatedLetters from "../../animated-letters/AnimatedLetters";
 import { Container } from "../../styles/globalStyles";
+import Logo from "../../logo/Logo";
 
 const Header: FC<IHamburger> = (props): ReactElement => {
   const { toggleMenu, setToggleMenu } = props;
@@ -40,9 +41,7 @@ const Header: FC<IHamburger> = (props): ReactElement => {
       <Container>
         <nav className="header">
           <div className="header__logo">
-            <h3 className="black-border">
-              <AnimatedLetters word="Dan Daw" />
-            </h3>
+            <Logo />
           </div>
           <Menu />
           <div>

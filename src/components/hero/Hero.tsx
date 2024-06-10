@@ -19,11 +19,15 @@ const Hero: FC = (): ReactElement => {
         </Container>
         <motion.div className="hero__social" variants={container} initial="initial" animate="animate">
           <motion.div className="hero__social--item" variants={item}>
-            <GithubSVG />
+            <a href="https://github.com/DanielDawidowski">
+              <GithubSVG />
+            </a>
           </motion.div>
 
           <motion.div className="hero__social--item" variants={item}>
-            <LinkedinSVG />
+            <a href="https://www.linkedin.com/in/daniel-dawidowski-924905165">
+              <LinkedinSVG />
+            </a>
           </motion.div>
         </motion.div>
       </div>

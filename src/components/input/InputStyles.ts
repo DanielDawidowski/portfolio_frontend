@@ -8,7 +8,6 @@ export const InputStyles = styled(motion.div)`
 export const InputField = styled.input`
   display: block;
   padding: ${(props) => props.theme.size1} ${(props) => props.theme.size3};
-  margin: ${(props) => props.theme.size1} ${(props) => props.theme.size1};
   line-height: 1.5;
   background-color: ${(props) => props.theme.purple_dark};
   background-clip: border-box;

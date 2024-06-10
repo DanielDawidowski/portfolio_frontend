@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import AnimatedLetters from "../../animated-letters/AnimatedLetters";
 import { scrollToElement } from "../../../services/utils/Utils";
@@ -20,20 +20,58 @@ const item: Variants = {
 };
 
 const Menu: FC = (): ReactElement => {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  const handleHoverStart = () => {
+    setIsHovered(true);
+  };
+
+  const handleHoverEnd = () => {
+    setIsHovered(false);
+  };
+
   return (
     <motion.ul variants={container} initial="hidden" animate="show" className="header__menu">
-      <motion.li variants={item} onClick={() => scrollToElement("about", 1000)}>
-        <motion.h3 className="black-border">
+      <motion.li
+        variants={item}
+        onClick={() => scrollToElement("about", 1000)}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
+      >
+        <motion.h3
+          className="black-border"
+          initial={{ letterSpacing: "0.5px", scale: 1 }}
+          whileHover={{ letterSpacing: isHovered ? "4px" : "0.5px", transition: { duration: 0.6 }, scale: 1.1 }}
+        >
           <AnimatedLetters word="About" />
         </motion.h3>
       </motion.li>
-      <motion.li variants={item} onClick={() => scrollToElement("contact", 1000)}>
-        <motion.h3 className="black-border">
+      <motion.li
+        variants={item}
+        onClick={() => scrollToElement("contact", 1000)}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
+      >
+        <motion.h3
+          className="black-border"
+          initial={{ letterSpacing: "0.5px", scale: 1 }}
+          whileHover={{ letterSpacing: isHovered ? "4px" : "0.5px", transition: { duration: 0.6 }, scale: 1.1 }}
+        >
           <AnimatedLetters word="Contact" />
         </motion.h3>
       </motion.li>
-      <motion.li variants={item} onClick={() => scrollToElement("projects", 1000)}>
-        <motion.h3 className="black-border">
+      <motion.li
+        variants={item}
+        onClick={() => scrollToElement("projects", 1000)}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
+      >
+        <motion.h3
+          className="black-border"
+          initial={{ letterSpacing: "0.5px", scale: 1 }}
+          whileHover={{ letterSpacing: isHovered ? "4px" : "0.5px", transition: { duration: 0.6 }, scale: 1.1 }}
+          style={{ color: isHovered ? "#333333" : "black" }}
+        >
           <AnimatedLetters word="Projects" />
         </motion.h3>
       </motion.li>
