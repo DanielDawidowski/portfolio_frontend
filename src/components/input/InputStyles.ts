@@ -18,6 +18,7 @@ export const InputField = styled.input`
   letter-spacing: 2px;
   text-transform: uppercase;
   outline: 0;
+  width: 100%;
   transition:
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import ContactBG from "../../assets/Images/contact/contact-bg.png";
+import { InputField } from "../input/InputStyles";
 
 export const ContactStyles = styled(motion.div)`
   background: url(${ContactBG}) no-repeat;
@@ -9,30 +10,14 @@ export const ContactStyles = styled(motion.div)`
   overflow: hidden;
 
   .contact {
-    .line {
-      height: 50px;
-      width: 100%;
-      &:nth-child(1) {
-        background-color: ${(props) => props.theme.purple_light};
-      }
-      &:nth-child(2) {
-        background-color: ${(props) => props.theme.turquoise_dark};
-        display: grid;
-        place-items: center;
-        h3 {
-          letter-spacing: 2px;
-        }
-      }
-      &:nth-child(3) {
-        background-color: ${(props) => props.theme.white};
-      }
-    }
     &__body {
       padding: ${(props) => props.theme.size6} ${(props) => props.theme.size1};
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
       @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
       }
       &--form {
         position: relative;
@@ -40,14 +25,15 @@ export const ContactStyles = styled(motion.div)`
         background-color: ${(props) => props.theme.purple_light};
         border-radius: 18px;
         padding: ${(props) => props.theme.size4} 0;
-
         @media (min-width: ${(props) => props.theme.breakpoint_small}) {
           padding: ${(props) => props.theme.size4} ${(props) => props.theme.size2};
         }
         &__item {
           display: flex;
+          justify-content: space-between;
           align-items: center;
-          input[type="text"] {
+
+          ${InputField} {
             width: 100%;
           }
           textarea {
@@ -88,19 +74,6 @@ export const ContactStyles = styled(motion.div)`
           max-width: 400px;
         }
       }
-    }
-  }
-`;
-
-export const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-
-  button {
-    margin-left: 60px;
-    @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-      margin-left: 20px;
     }
   }
 `;

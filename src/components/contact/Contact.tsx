@@ -1,7 +1,7 @@
 import { ReactElement, useState, ChangeEvent } from "react";
 import type { FC } from "react";
 import { motion } from "framer-motion";
-import { ContactStyles, FormContainer } from "./ContactStyles";
+import { ContactStyles } from "./ContactStyles";
 import ContactImg from "../../assets/Images/contact/contact.png";
 import PhoneImg from "../../assets/Images/contact/phone.png";
 import Image from "../image/Image";
@@ -17,6 +17,7 @@ import { IContactData } from "./Contact.interface";
 import { projectsVariants } from "../projects/ProjectsVariants";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { emailService } from "../../services/email";
+import Line from "../line/Line";
 
 const initialState: IContactData = {
   name: "",
@@ -55,28 +56,12 @@ const Contact: FC = (): ReactElement => {
   };
 
   return (
-    <ContactStyles>
-      <div id="contact" className="contact">
+    <ContactStyles id="contact">
+      <div className="contact">
         <div className="contact__title">
-          <motion.div
-            ref={ref}
-            animate={animation}
-            initial="hidden"
-            variants={variantLeft}
-            className="line"
-          ></motion.div>
-          <motion.div ref={ref} animate={animation} initial="hidden" variants={variantRight} className="line">
-            <h3 className="black-border">Contact</h3>
-          </motion.div>
-          <motion.div
-            ref={ref}
-            animate={animation}
-            initial="hidden"
-            variants={variantRight}
-            className="line"
-          ></motion.div>
+          <Line name={"Contact"} margin={"300px"} />
         </div>
-        <Container small>
+        <Container $small>
           <div className="contact__body">
             <motion.div
               className="contact__body--form"
@@ -92,48 +77,46 @@ const Contact: FC = (): ReactElement => {
                 hidden: { opacity: 0, y: 72 }
               }}
             >
-              <FormContainer>
-                <form onSubmit={handleSubmit}>
-                  <motion.div
-                    className="contact__body--form__item"
-                    ref={ref}
-                    initial="hidden"
-                    animate={animation}
-                    variants={variantLeft}
-                  >
-                    <div className="contact__body--form__item--icon">
-                      <UserSVG />
-                    </div>
-                    <Input id="name" name="name" type="text" value={formData.name} onChange={handleChange} />
-                  </motion.div>
-                  <motion.div
-                    className="contact__body--form__item"
-                    ref={ref}
-                    initial="hidden"
-                    animate={animation}
-                    variants={variantRight}
-                  >
-                    <div className="contact__body--form__item--icon">
-                      <EmailSVG />
-                    </div>
-                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} />
-                  </motion.div>
-                  <motion.div
-                    className="contact__body--form__item"
-                    ref={ref}
-                    initial="hidden"
-                    animate={animation}
-                    variants={variantLeft}
-                  >
-                    <div className="contact__body--form__item--icon">
-                      <EnvelopeSVG />
-                    </div>
-                    <TextArea onChange={handleMessageChange} value={formData.message} />
-                  </motion.div>
+              <form onSubmit={handleSubmit}>
+                <motion.div
+                  className="contact__body--form__item"
+                  ref={ref}
+                  initial="hidden"
+                  animate={animation}
+                  variants={variantLeft}
+                >
+                  <div className="contact__body--form__item--icon">
+                    <UserSVG />
+                  </div>
+                  <Input id="name" name="name" type="text" value={formData.name} onChange={handleChange} />
+                </motion.div>
+                <motion.div
+                  className="contact__body--form__item"
+                  ref={ref}
+                  initial="hidden"
+                  animate={animation}
+                  variants={variantRight}
+                >
+                  <div className="contact__body--form__item--icon">
+                    <EmailSVG />
+                  </div>
+                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} />
+                </motion.div>
+                <motion.div
+                  className="contact__body--form__item"
+                  ref={ref}
+                  initial="hidden"
+                  animate={animation}
+                  variants={variantLeft}
+                >
+                  <div className="contact__body--form__item--icon">
+                    <EnvelopeSVG />
+                  </div>
+                  <TextArea onChange={handleMessageChange} value={formData.message} />
+                </motion.div>
 
-                  <Button color={ButtonColor.primary}>Send</Button>
-                </form>
-              </FormContainer>
+                <Button color={ButtonColor.primary}>Send</Button>
+              </form>
               <motion.div
                 className="contact__body--form__image"
                 ref={ref}

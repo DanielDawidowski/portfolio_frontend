@@ -8,6 +8,7 @@ import NodeSVG from "../../assets/SVG/Node";
 import SassSVG from "../../assets/SVG/Sass";
 import FramerSVG from "../../assets/SVG/Framer";
 import StyledSVG from "../../assets/SVG/Styled";
+import SocketIOSVG from "../../assets/SVG/Socketio";
 
 export type IStack = {
   name: string;
@@ -38,6 +39,10 @@ export const projects: IProject[] = [
       {
         name: "React",
         icon: <ReactSVG />
+      },
+      {
+        name: "Node.js",
+        icon: <NodeSVG />
       },
       {
         name: "@Reduxjs/toolkit",
@@ -106,16 +111,16 @@ export const projects: IProject[] = [
         icon: <NodeSVG />
       },
       {
-        name: "Javascript",
-        icon: <JSSVG />
-      },
-      {
         name: "Framer motion",
         icon: <FramerSVG />
       },
       {
-        name: "Sass",
-        icon: <SassSVG />
+        name: "Styled components",
+        icon: <StyledSVG />
+      },
+      {
+        name: "Socket IO",
+        icon: <SocketIOSVG />
       }
     ]
   },
@@ -131,7 +136,7 @@ export const projects: IProject[] = [
         icon: <ReactSVG />
       },
       {
-        name: "Redux",
+        name: "@Reduxjs/toolkit",
         icon: <ReduxSVG />
       },
       {
