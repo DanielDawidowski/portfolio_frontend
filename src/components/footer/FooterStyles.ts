@@ -8,16 +8,18 @@ export const FooterStyles = styled(motion.footer)`
   display: flex;
   justify-content: center;
   align-items: center;
-  .footer {
-    padding: ${(props) => props.theme.size4};
-    @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-      padding: ${(props) => props.theme.size4} 0;
-    }
-    &__inner {
-      display: grid;
-      place-items: center;
-      grid-template-columns: 1fr 1fr;
-      grid-column-gap: 40px;
-    }
+`;
+
+export const FooterWrapper = styled(motion.div)`
+  padding: ${(props) => props.theme.size4};
+  @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+    padding: ${(props) => props.theme.size4} 0;
   }
+`;
+
+export const FooterSocial = styled(motion.ul)`
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 40px;
 `;

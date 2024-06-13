@@ -46,7 +46,7 @@ export const CloseMenu = styled.div`
       width: 30px;
       height: 4px;
       display: block;
-      background: ${(props) => props.theme.black};
+      background: ${(props) => props.theme.purple_light};
       border-radius: 25%;
 
       &:nth-child(1) {

@@ -1,6 +1,6 @@
 import { FC, ReactElement, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { HeaderStyles } from "./HeaderStyles";
+import { HeaderLogo, HeaderNav, HeaderStyles } from "./HeaderStyles";
 import IHamburger from "../hamburger/Hamburger.interface";
 import Hamburger from "../hamburger/Hamburger";
 import Menu from "../menu/Menu";
@@ -33,20 +33,28 @@ const Header: FC<IHamburger> = (props): ReactElement => {
     };
   }, [currentSection]);
 
-  const headerColors: string[] = ["#85f3ea39", "#4687a1eb", "#262034eb", "#b280ddeb", "#33547aed", "#33547aed"];
+  const headerColors: string[] = [
+    "#85f3ea39",
+    "#4687a1eb",
+    "#262034eb",
+    "#b280ddeb",
+    "#33547aed",
+    "#33547aed",
+    "#33547aed"
+  ];
 
   return (
     <HeaderStyles bgColor={headerColors[currentSection]}>
       <Container>
-        <nav className="header">
-          <div className="header__logo">
+        <HeaderNav>
+          <HeaderLogo>
             <Logo />
-          </div>
+          </HeaderLogo>
           <Menu />
           <div>
             <Hamburger setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
           </div>
-        </nav>
+        </HeaderNav>
       </Container>
     </HeaderStyles>
   );

@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 import { AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
-import { NavStyles } from "./NavigationStyles";
+import { NavBody, NavLogo, NavStyles, NavWrapper } from "./NavigationStyles";
 import Hamburger from "../hamburger/Hamburger";
 import IHamburger from "../hamburger/Hamburger.interface";
 import Menu from "../menu/Menu";
@@ -22,20 +22,19 @@ const Navigation: FC<IHamburger> = (props): ReactElement => {
             exit={{ y: "-100%" }}
             className="nav"
           >
-            <nav>
-              <div className="nav__logo">
+            <NavWrapper>
+              <NavLogo>
                 <h2>Dan Daw</h2>
-              </div>
+              </NavLogo>
               <ul>
-                <li></li>
                 <li>
                   <Hamburger setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} close />
                 </li>
               </ul>
-            </nav>
-            <div className="nav__body">
-              <Menu />
-            </div>
+            </NavWrapper>
+            <NavBody>
+              <Menu setToggleMenu={setToggleMenu} />
+            </NavBody>
           </NavStyles>
         </>
       )}

@@ -17,36 +17,39 @@ export const HeroStyles = styled(motion.div)`
     background-position: center;
     height: 100vh;
   }
-  .hero {
-    position: relative;
-    width: 100%;
+`;
 
-    &__text {
-      width: 100%;
-      height: 540px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      margin-top: ${(props) => props.theme.size8};
-      @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-        justify-content: flex-start;
-        align-items: center;
-        height: 100%;
-      }
-      h1 {
-        text-align: center;
+export const HeroWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 80%;
+`;
 
-        @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-          text-align: inherit;
-        }
-      }
-    }
-    &__social {
-      display: grid;
-      grid-gap: ${(props) => props.theme.size4};
-      position: absolute;
-      bottom: 20%;
-      left: 2%;
+export const HeroSocial = styled(motion.div)`
+  display: grid;
+  grid-gap: ${(props) => props.theme.size4};
+  position: absolute;
+  bottom: 20%;
+  left: 2%;
+`;
+
+export const HeroText = styled.div`
+  width: 100%;
+  height: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: ${(props) => props.theme.size8};
+  @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+  }
+  h1 {
+    text-align: center;
+
+    @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+      text-align: inherit;
     }
   }
 `;

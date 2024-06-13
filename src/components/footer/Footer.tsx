@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import type { FC } from "react";
 import { Variants, motion } from "framer-motion";
-import { FooterStyles } from "./FooterStyles";
+import { FooterSocial, FooterStyles, FooterWrapper } from "./FooterStyles";
 import GithubSVG from "../../assets/SVG/Github";
 import LinkedinSVG from "../../assets/SVG/Linkedin";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
@@ -27,8 +27,7 @@ const Footer: FC = (): ReactElement => {
 
   return (
     <FooterStyles>
-      <motion.div
-        className="footer"
+      <FooterWrapper
         ref={ref}
         animate={animation}
         initial="hidden"
@@ -41,15 +40,15 @@ const Footer: FC = (): ReactElement => {
           hidden: { opacity: 0, y: -22 }
         }}
       >
-        <motion.ul className="footer__inner" variants={container} initial="hidden" animate="show">
+        <FooterSocial variants={container} initial="hidden" animate="show">
           <motion.li variants={item}>
             <GithubSVG fill="#85F3EA" />
           </motion.li>
           <motion.li variants={item}>
             <LinkedinSVG fill="#85F3EA" />
           </motion.li>
-        </motion.ul>
-      </motion.div>
+        </FooterSocial>
+      </FooterWrapper>
     </FooterStyles>
   );
 };

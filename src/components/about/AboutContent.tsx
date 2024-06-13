@@ -1,14 +1,13 @@
 import { ReactElement } from "react";
 import type { FC } from "react";
-import { motion } from "framer-motion";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { AboutContentStyles } from "./AboutStyles";
 
 const AboutContent: FC = (): ReactElement => {
   const [ref, animation] = useScrollAnimation("-150px");
 
   return (
-    <motion.p
-      className="about__content"
+    <AboutContentStyles
       ref={ref}
       animate={animation}
       initial="hidden"
@@ -22,7 +21,7 @@ const AboutContent: FC = (): ReactElement => {
       }}
     >
       I<span className="white-color black-border">’</span>m a{" "}
-      <span className="white-color black-border">versatile professional</span> who blends the worlds of development and
+      <span className="white-color black-border">versatile developer</span> who blends the worlds of development and
       design to craft exceptional digital experiences
       <span className="white-color black-border">.</span> With a keen eye for aesthetics{" "}
       <span className="white-color black-border">and</span> a deep understanding of code
@@ -35,7 +34,7 @@ const AboutContent: FC = (): ReactElement => {
       passionate <span className="white-color black-border">creator</span> who turns ideas into elegant
       <span className="white-color black-border">,</span> functional realities
       <span className="white-color black-border">.</span>
-    </motion.p>
+    </AboutContentStyles>
   );
 };
 

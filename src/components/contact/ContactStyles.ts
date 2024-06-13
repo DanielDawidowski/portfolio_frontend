@@ -7,100 +7,77 @@ export const ContactStyles = styled(motion.div)`
   background-size: cover;
   background-position: center;
   overflow: hidden;
+`;
 
-  .contact {
-    .line {
-      height: 50px;
-      width: 100%;
-      &:nth-child(1) {
-        background-color: ${(props) => props.theme.purple_light};
-      }
-      &:nth-child(2) {
-        background-color: ${(props) => props.theme.turquoise_dark};
-        display: grid;
-        place-items: center;
-        h3 {
-          letter-spacing: 2px;
-        }
-      }
-      &:nth-child(3) {
-        background-color: ${(props) => props.theme.white};
-      }
-    }
-    &__body {
-      padding: ${(props) => props.theme.size6} ${(props) => props.theme.size1};
-      @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      &--form {
-        position: relative;
-        display: flex;
-        background-color: ${(props) => props.theme.purple_light};
-        border-radius: 18px;
-        padding: ${(props) => props.theme.size4} 0;
-
-        @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-          padding: ${(props) => props.theme.size4} ${(props) => props.theme.size2};
-        }
-        &__item {
-          display: flex;
-          align-items: center;
-          input[type="text"] {
-            width: 100%;
-          }
-          textarea {
-            width: 100%;
-          }
-
-          &--icon {
-            padding-right: ${(props) => props.theme.size1};
-            svg {
-              width: 30px;
-              height: 30px;
-            }
-          }
-
-          &:nth-child(3) {
-            align-items: flex-start;
-          }
-        }
-        &__image {
-          display: none;
-          @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-            display: block;
-            position: absolute;
-            background: ${(props) => props.theme.white};
-            margin: ${(props) => props.theme.size1};
-            border-radius: 18px;
-            top: 45%;
-            left: -10%;
-          }
-          img {
-            width: 80px;
-          }
-        }
-      }
-      &--image {
-        margin-top: 50px;
-        @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
-          max-width: 400px;
-        }
-      }
-    }
+export const ContactWrapper = styled.div`
+  padding: ${(props) => props.theme.size6} ${(props) => props.theme.size1};
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
   }
 `;
 
-export const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 300px;
+export const ContactForm = styled(motion.div)`
+  position: relative;
+  background-color: ${(props) => props.theme.purple_light};
+  border-radius: 18px;
+  padding: ${(props) => props.theme.size4} ${(props) => props.theme.size1};
 
-  button {
-    margin-left: 60px;
-    @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-      margin-left: 20px;
-    }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+    padding: ${(props) => props.theme.size4} ${(props) => props.theme.size2};
+  }
+`;
+
+export const ContactFormItem = styled(motion.div)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:nth-child(3) {
+    align-items: flex-start;
+  }
+`;
+
+export const ContactFormIcon = styled(motion.div)`
+  padding-right: ${(props) => props.theme.size1};
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+`;
+
+export const ContactFormImage = styled(motion.div)`
+  display: none;
+  @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+    display: block;
+    position: absolute;
+    background: ${(props) => props.theme.white};
+    margin: ${(props) => props.theme.size1};
+    border-radius: 18px;
+    top: 55%;
+    left: -15%;
+  }
+  img {
+    width: 80px;
+  }
+`;
+
+export const ContactButton = styled(motion.div)`
+  margin-left: ${(props) => props.theme.size5};
+`;
+
+export const ContactImage = styled(motion.div)`
+  margin-top: 50px;
+  @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
+    max-width: 400px;
   }
 `;

@@ -10,6 +10,20 @@ const AccordionContainer = styled(motion.div)`
 
 const AccordionHeader = styled.div`
   cursor: pointer;
+  padding: ${(props) => props.theme.size5} 6px;
+  border-top: 1px solid ${(props) => props.theme.turquoise_dark};
+  display: flex;
+  justify-content: space-between;
+  @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+    padding: ${(props) => props.theme.size6} 6px;
+  }
+
+  h2 {
+    font-size: ${(props) => props.theme.size5};
+    @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+      font-size: ${(props) => props.theme.size6};
+    }
+  }
 `;
 
 const AccordionContent = styled(motion.div)`
@@ -27,9 +41,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, isOpen, onClick, children 
   return (
     <AccordionContainer>
       <AccordionHeader onClick={onClick}>
-        <motion.div className="projects__content--item__header">
-          <h2 className="black-border">{title}</h2>
-        </motion.div>
+        <h2 className="black-border">{title}</h2>
       </AccordionHeader>
       <AnimatePresence>
         {isOpen && (

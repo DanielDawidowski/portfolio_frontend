@@ -41,7 +41,7 @@ img {
 }
 `;
 
-export const Container = styled.div<{ small?: boolean }>`
+export const Container = styled.div<{ $small?: boolean }>`
   margin: 0 auto;
   max-width: 900px;
 
@@ -50,10 +50,10 @@ export const Container = styled.div<{ small?: boolean }>`
   }
 
   ${(props) =>
-    props.small &&
+    props.$small &&
     css`
       @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-        max-width: 1000px;
+        max-width: 800px;
       }
     `}
 `;
