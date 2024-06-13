@@ -3,7 +3,7 @@ import Header from "./components/navs/header/Header";
 import Navigation from "./components/navs/navigation/Navigation";
 import Hero from "./components/hero/Hero";
 import Stack from "./components/stack/Stack";
-import ScrollSlider from "./components/ScrollSlider/ScrollSlider";
+import ScrollSlider from "./components/scrollSliders/ScrollSlider";
 import About from "./components/about/About";
 import Projects from "./components/projects/Projects";
 import Contact from "./components/contact/Contact";
