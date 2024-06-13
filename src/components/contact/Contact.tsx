@@ -8,7 +8,9 @@ import {
   ContactFormItem,
   ContactImage,
   ContactStyles,
-  ContactWrapper
+  ContactWrapper,
+  ErrorMessage,
+  SuccessMessage
 } from "./ContactStyles";
 import ContactImg from "../../assets/Images/contact/contact.png";
 import PhoneImg from "../../assets/Images/contact/phone.png";
@@ -35,6 +37,8 @@ const initialState: IContactData = {
 
 const Contact: FC = (): ReactElement => {
   const [formData, setFormData] = useState<IContactData>(initialState);
+  const [success, setSuccess] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
 
   const [ref, animation] = useScrollAnimation("300px");
 
@@ -56,8 +60,10 @@ const Contact: FC = (): ReactElement => {
     try {
       const response = await emailService.sendMessage(formData);
       setFormData(initialState);
+      setSuccess(true);
       return response;
     } catch (error) {
+      setError(true);
       console.error("error: ", error);
       // Utils.dispatchNotification(errorMessage, "error", dispatch);
     }
@@ -81,6 +87,17 @@ const Contact: FC = (): ReactElement => {
               hidden: { opacity: 0, y: 72 }
             }}
           >
+            {success ? (
+              <SuccessMessage>
+                <h3 className="black-border">Email sent</h3>
+              </SuccessMessage>
+            ) : null}
+            {error ? (
+              <ErrorMessage>
+                <h3 className="black-border">Error sending</h3>
+              </ErrorMessage>
+            ) : null}
+
             <form onSubmit={handleSubmit}>
               <ContactFormItem ref={ref} initial="hidden" animate={animation} variants={variantLeft}>
                 <ContactFormIcon>

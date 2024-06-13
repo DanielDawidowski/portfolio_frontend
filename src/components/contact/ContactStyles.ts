@@ -30,10 +30,35 @@ export const ContactForm = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
   }
   @media (min-width: ${(props) => props.theme.breakpoint_small}) {
     padding: ${(props) => props.theme.size4} ${(props) => props.theme.size2};
+  }
+`;
+
+const Message = styled(motion.div)`
+  margin: 0 0 8px 0;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: ${(props) => props.theme.white};
+  h3 {
+    padding: ${(props) => props.theme.size1};
+    letter-spacing: 1px;
+  }
+`;
+
+export const SuccessMessage = styled(Message)`
+  border: 1px solid ${(props) => props.theme.green_light};
+  h3 {
+    color: ${(props) => props.theme.green_light};
+  }
+`;
+
+export const ErrorMessage = styled(Message)`
+  border: 1px solid ${(props) => props.theme.red};
+  h3 {
+    color: ${(props) => props.theme.red};
   }
 `;
 
