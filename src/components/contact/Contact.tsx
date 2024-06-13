@@ -1,7 +1,15 @@
 import { ReactElement, useState, ChangeEvent } from "react";
 import type { FC } from "react";
-import { motion } from "framer-motion";
-import { ContactStyles } from "./ContactStyles";
+import {
+  ContactButton,
+  ContactForm,
+  ContactFormIcon,
+  ContactFormImage,
+  ContactFormItem,
+  ContactImage,
+  ContactStyles,
+  ContactWrapper
+} from "./ContactStyles";
 import ContactImg from "../../assets/Images/contact/contact.png";
 import PhoneImg from "../../assets/Images/contact/phone.png";
 import Image from "../image/Image";
@@ -57,14 +65,46 @@ const Contact: FC = (): ReactElement => {
 
   return (
     <ContactStyles id="contact">
-      <div className="contact">
-        <div className="contact__title">
-          <Line name={"Contact"} margin={"300px"} />
-        </div>
-        <Container $small>
-          <div className="contact__body">
-            <motion.div
-              className="contact__body--form"
+      <Line name={"Contact"} margin={"300px"} />
+      <Container $small>
+        <ContactWrapper>
+          <ContactForm
+            ref={ref}
+            initial="hidden"
+            animate={animation}
+            variants={{
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.8, ease: "easeInOut" }
+              },
+              hidden: { opacity: 0, y: 72 }
+            }}
+          >
+            <form onSubmit={handleSubmit}>
+              <ContactFormItem ref={ref} initial="hidden" animate={animation} variants={variantLeft}>
+                <ContactFormIcon>
+                  <UserSVG />
+                </ContactFormIcon>
+                <Input id="name" name="name" type="text" value={formData.name} onChange={handleChange} />
+              </ContactFormItem>
+              <ContactFormItem ref={ref} initial="hidden" animate={animation} variants={variantRight}>
+                <ContactFormIcon>
+                  <EmailSVG />
+                </ContactFormIcon>
+                <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} />
+              </ContactFormItem>
+              <ContactFormItem ref={ref} initial="hidden" animate={animation} variants={variantLeft}>
+                <ContactFormIcon>
+                  <EnvelopeSVG />
+                </ContactFormIcon>
+                <TextArea onChange={handleMessageChange} value={formData.message} />
+              </ContactFormItem>
+              <ContactButton ref={ref} initial="hidden" animate={animation} variants={variantRight}>
+                <Button color={ButtonColor.primary}>Send</Button>
+              </ContactButton>
+            </form>
+            <ContactFormImage
               ref={ref}
               initial="hidden"
               animate={animation}
@@ -77,83 +117,27 @@ const Contact: FC = (): ReactElement => {
                 hidden: { opacity: 0, y: 72 }
               }}
             >
-              <form onSubmit={handleSubmit}>
-                <motion.div
-                  className="contact__body--form__item"
-                  ref={ref}
-                  initial="hidden"
-                  animate={animation}
-                  variants={variantLeft}
-                >
-                  <div className="contact__body--form__item--icon">
-                    <UserSVG />
-                  </div>
-                  <Input id="name" name="name" type="text" value={formData.name} onChange={handleChange} />
-                </motion.div>
-                <motion.div
-                  className="contact__body--form__item"
-                  ref={ref}
-                  initial="hidden"
-                  animate={animation}
-                  variants={variantRight}
-                >
-                  <div className="contact__body--form__item--icon">
-                    <EmailSVG />
-                  </div>
-                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} />
-                </motion.div>
-                <motion.div
-                  className="contact__body--form__item"
-                  ref={ref}
-                  initial="hidden"
-                  animate={animation}
-                  variants={variantLeft}
-                >
-                  <div className="contact__body--form__item--icon">
-                    <EnvelopeSVG />
-                  </div>
-                  <TextArea onChange={handleMessageChange} value={formData.message} />
-                </motion.div>
+              <Image src={PhoneImg} alt="Phone" />
+            </ContactFormImage>
+          </ContactForm>
 
-                <Button color={ButtonColor.primary}>Send</Button>
-              </form>
-              <motion.div
-                className="contact__body--form__image"
-                ref={ref}
-                initial="hidden"
-                animate={animation}
-                variants={{
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { duration: 0.8, ease: "easeInOut" }
-                  },
-                  hidden: { opacity: 0, y: 72 }
-                }}
-              >
-                <Image src={PhoneImg} alt="Phone" />
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              className="contact__body--image"
-              ref={ref}
-              initial="hidden"
-              animate={animation}
-              variants={{
-                visible: {
-                  opacity: 1,
-                  x: 0,
-                  transition: { duration: 0.8, ease: "easeInOut" }
-                },
-                hidden: { opacity: 0, x: 72 }
-              }}
-            >
-              <Image src={ContactImg} alt="Contact image" />
-            </motion.div>
-          </div>
-        </Container>
-      </div>
+          <ContactImage
+            ref={ref}
+            initial="hidden"
+            animate={animation}
+            variants={{
+              visible: {
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.8, ease: "easeInOut" }
+              },
+              hidden: { opacity: 0, x: 72 }
+            }}
+          >
+            <Image src={ContactImg} alt="Contact image" />
+          </ContactImage>
+        </ContactWrapper>
+      </Container>
     </ContactStyles>
   );
 };

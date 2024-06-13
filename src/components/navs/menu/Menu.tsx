@@ -2,6 +2,8 @@ import { FC, ReactElement, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import AnimatedLetters from "../../animated-letters/AnimatedLetters";
 import { scrollToElement } from "../../../services/utils/Utils";
+import { IMenu, IMenuItem, menuItems } from "./Menu.interface";
+import { MenuStyles } from "./Menu.styles";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -19,7 +21,7 @@ const item: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
-const Menu: FC = (): ReactElement => {
+const Menu: FC<IMenu> = ({ setToggleMenu }): ReactElement => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const handleHoverStart = () => {
@@ -30,52 +32,31 @@ const Menu: FC = (): ReactElement => {
     setIsHovered(false);
   };
 
+  const handleClick = (name: string) => {
+    scrollToElement(name, 1000);
+    setToggleMenu!(false);
+  };
+
   return (
-    <motion.ul variants={container} initial="hidden" animate="show" className="header__menu">
-      <motion.li
-        variants={item}
-        onClick={() => scrollToElement("about", 1000)}
-        onHoverStart={handleHoverStart}
-        onHoverEnd={handleHoverEnd}
-      >
-        <motion.h3
-          className="black-border"
-          initial={{ letterSpacing: "0.5px", scale: 1 }}
-          whileHover={{ letterSpacing: isHovered ? "4px" : "0.5px", transition: { duration: 0.6 }, scale: 1.1 }}
+    <MenuStyles variants={container} initial="hidden" animate="show">
+      {menuItems.map((menuItem: IMenuItem, i: number) => (
+        <motion.li
+          key={i}
+          variants={item}
+          onClick={() => handleClick(menuItem.name.toLowerCase())}
+          onHoverStart={handleHoverStart}
+          onHoverEnd={handleHoverEnd}
         >
-          <AnimatedLetters word="About" />
-        </motion.h3>
-      </motion.li>
-      <motion.li
-        variants={item}
-        onClick={() => scrollToElement("contact", 1000)}
-        onHoverStart={handleHoverStart}
-        onHoverEnd={handleHoverEnd}
-      >
-        <motion.h3
-          className="black-border"
-          initial={{ letterSpacing: "0.5px", scale: 1 }}
-          whileHover={{ letterSpacing: isHovered ? "4px" : "0.5px", transition: { duration: 0.6 }, scale: 1.1 }}
-        >
-          <AnimatedLetters word="Contact" />
-        </motion.h3>
-      </motion.li>
-      <motion.li
-        variants={item}
-        onClick={() => scrollToElement("projects", 1000)}
-        onHoverStart={handleHoverStart}
-        onHoverEnd={handleHoverEnd}
-      >
-        <motion.h3
-          className="black-border"
-          initial={{ letterSpacing: "0.5px", scale: 1 }}
-          whileHover={{ letterSpacing: isHovered ? "4px" : "0.5px", transition: { duration: 0.6 }, scale: 1.1 }}
-          style={{ color: isHovered ? "#333333" : "black" }}
-        >
-          <AnimatedLetters word="Projects" />
-        </motion.h3>
-      </motion.li>
-    </motion.ul>
+          <motion.h3
+            className="black-border"
+            initial={{ letterSpacing: "0.5px", scale: 1 }}
+            whileHover={{ letterSpacing: isHovered ? "4px" : "0.5px", transition: { duration: 0.6 }, scale: 1.1 }}
+          >
+            <AnimatedLetters word={menuItem.name} />
+          </motion.h3>
+        </motion.li>
+      ))}
+    </MenuStyles>
   );
 };
 

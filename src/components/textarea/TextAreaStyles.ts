@@ -15,8 +15,10 @@ export const TextAreaField = styled(motion.textarea)`
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
   resize: none;
+  width: 100%;
 `;
 
 export const TextAreaStyles = styled(motion.div)`
   margin-bottom: ${(props) => props.theme.size1};
+  width: 100%;
 `;

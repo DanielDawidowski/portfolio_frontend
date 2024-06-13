@@ -1,7 +1,16 @@
 import { ReactElement } from "react";
 import type { FC } from "react";
 import { motion } from "framer-motion";
-import { AboutStyles } from "./AboutStyles";
+import {
+  SmallProfileQuery,
+  AboutSmallQuery,
+  AboutStyles,
+  AboutTitle,
+  SmallProfileInnerQuery,
+  AboutBigQuery,
+  BigProfileQuery,
+  BigProfileInnerQuery
+} from "./AboutStyles";
 import { Triangle } from "../stack/StackStyles";
 import Image from "../image/Image";
 import ProfileImg from "../../assets/Images/about/me.png";
@@ -19,29 +28,26 @@ const About: FC = (): ReactElement => {
     <AboutStyles>
       <div id="about" className="about">
         <Container>
-          <div className="about__title">
+          <AboutTitle>
             <Triangle bottomLeft />
             <h3 className="black-border">About Me</h3>
             <Triangle bottomRight />
-          </div>
+          </AboutTitle>
           <AboutContent />
         </Container>
-        <div className="about__info--small">
-          <div className="about__info--image">
-            <Image src={AboutInfoSmall} alt="AboutInfoSmall" />
-          </div>
-          <div className="about__info--small__profile">
-            <div className="about__info--small__profile__inner">
+        <AboutSmallQuery>
+          <Image src={AboutInfoSmall} alt="AboutInfoSmall" />
+          <SmallProfileQuery>
+            <SmallProfileInnerQuery>
               <Image src={ProfileImg} alt="Profile" />
               <Arrow rotate />
-            </div>
-          </div>
-        </div>
+            </SmallProfileInnerQuery>
+          </SmallProfileQuery>
+        </AboutSmallQuery>
 
-        <div className="about__info--big">
+        <AboutBigQuery>
           <Container>
-            <motion.div
-              className="about__info--big__profile"
+            <BigProfileQuery
               ref={ref}
               animate={animation}
               initial="hidden"
@@ -54,14 +60,14 @@ const About: FC = (): ReactElement => {
                 hidden: { opacity: 0, y: 72 }
               }}
             >
-              <div className="about__info--big__profile__inner">
+              <BigProfileInnerQuery>
                 <Arrow />
                 <Image src={ProfileImg} alt="Profile" />
-              </div>
+              </BigProfileInnerQuery>
               <Image src={AboutInfoBig} alt="AboutInfoBig" />
-            </motion.div>
+            </BigProfileQuery>
           </Container>
-        </div>
+        </AboutBigQuery>
       </div>
     </AboutStyles>
   );

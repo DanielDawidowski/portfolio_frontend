@@ -1,79 +1,83 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import ContactBG from "../../assets/Images/contact/contact-bg.png";
-import { InputField } from "../input/InputStyles";
 
 export const ContactStyles = styled(motion.div)`
   background: url(${ContactBG}) no-repeat;
   background-size: cover;
   background-position: center;
   overflow: hidden;
+`;
 
-  .contact {
-    &__body {
-      padding: ${(props) => props.theme.size6} ${(props) => props.theme.size1};
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr;
-      @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 10px;
-      }
-      &--form {
-        position: relative;
-        display: flex;
-        background-color: ${(props) => props.theme.purple_light};
-        border-radius: 18px;
-        padding: ${(props) => props.theme.size4} 0;
-        @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-          padding: ${(props) => props.theme.size4} ${(props) => props.theme.size2};
-        }
-        &__item {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+export const ContactWrapper = styled.div`
+  padding: ${(props) => props.theme.size6} ${(props) => props.theme.size1};
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+  }
+`;
 
-          ${InputField} {
-            width: 100%;
-          }
-          textarea {
-            width: 100%;
-          }
+export const ContactForm = styled(motion.div)`
+  position: relative;
+  background-color: ${(props) => props.theme.purple_light};
+  border-radius: 18px;
+  padding: ${(props) => props.theme.size4} ${(props) => props.theme.size1};
 
-          &--icon {
-            padding-right: ${(props) => props.theme.size1};
-            svg {
-              width: 30px;
-              height: 30px;
-            }
-          }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+    padding: ${(props) => props.theme.size4} ${(props) => props.theme.size2};
+  }
+`;
 
-          &:nth-child(3) {
-            align-items: flex-start;
-          }
-        }
-        &__image {
-          display: none;
-          @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-            display: block;
-            position: absolute;
-            background: ${(props) => props.theme.white};
-            margin: ${(props) => props.theme.size1};
-            border-radius: 18px;
-            top: 45%;
-            left: -10%;
-          }
-          img {
-            width: 80px;
-          }
-        }
-      }
-      &--image {
-        margin-top: 50px;
-        @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
-          max-width: 400px;
-        }
-      }
-    }
+export const ContactFormItem = styled(motion.div)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:nth-child(3) {
+    align-items: flex-start;
+  }
+`;
+
+export const ContactFormIcon = styled(motion.div)`
+  padding-right: ${(props) => props.theme.size1};
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+`;
+
+export const ContactFormImage = styled(motion.div)`
+  display: none;
+  @media (min-width: ${(props) => props.theme.breakpoint_small}) {
+    display: block;
+    position: absolute;
+    background: ${(props) => props.theme.white};
+    margin: ${(props) => props.theme.size1};
+    border-radius: 18px;
+    top: 55%;
+    left: -15%;
+  }
+  img {
+    width: 80px;
+  }
+`;
+
+export const ContactButton = styled(motion.div)`
+  margin-left: ${(props) => props.theme.size5};
+`;
+
+export const ContactImage = styled(motion.div)`
+  margin-top: 50px;
+  @media (min-width: ${(props) => props.theme.breakpoint_xsmall}) {
+    max-width: 400px;
   }
 `;

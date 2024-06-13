@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 export const InputStyles = styled(motion.div)`
   margin-bottom: ${(props) => props.theme.size1};
+  width: 100%;
 `;
 
 export const InputField = styled.input`

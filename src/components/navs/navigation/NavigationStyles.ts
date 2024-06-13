@@ -7,37 +7,45 @@ export const NavStyles = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 40%;
-  background: ${(props) => props.theme.red};
+  background: ${(props) => props.theme.purple_dark};
   z-index: 999;
-  nav {
-    margin: ${(props) => props.theme.size1};
-    padding: ${(props) => props.theme.size1} 0;
+`;
+
+export const NavWrapper = styled.nav`
+  margin: ${(props) => props.theme.size1};
+  padding: ${(props) => props.theme.size1};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .nav__logo a {
-      display: flex;
-      h2 {
-        margin-left: ${(props) => props.theme.size1};
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-    }
-    ul {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      li:first-child {
-        margin-right: ${(props) => props.theme.size1};
-      }
+    li:first-child {
+      margin-right: ${(props) => props.theme.size1};
     }
   }
+`;
 
-  .nav__body {
-    display: grid;
-    li {
-      margin-bottom: ${(props) => props.theme.size1};
-      margin-left: ${(props) => props.theme.size1};
+export const NavLogo = styled.div`
+  display: flex;
+  h2 {
+    margin-left: ${(props) => props.theme.size1};
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+`;
+
+export const NavBody = styled.div`
+  display: grid;
+  width: 100%;
+
+  li {
+    margin: 8px 16px;
+    h3 {
+      padding-left: ${(props) => props.theme.size4};
+      padding: ${(props) => props.theme.size1};
+      border-bottom: 1px solid ${(props) => props.theme.white};
     }
   }
 `;
