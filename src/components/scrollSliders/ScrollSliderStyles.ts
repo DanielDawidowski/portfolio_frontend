@@ -39,7 +39,7 @@ export const ScrollSliderStyles = styled(motion.div)`
       flex-wrap: nowrap;
       background: ${(props) => props.theme.purple_light};
       @media (min-width: ${(props) => props.theme.breakpoint_small}) {
-        width: 100%;
+        width: 1900px;
       }
 
       h1 {
