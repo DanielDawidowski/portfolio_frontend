@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 import type { FC } from "react";
-import { motion } from "framer-motion";
 import {
   SmallProfileQuery,
   AboutSmallQuery,
